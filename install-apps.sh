@@ -3,7 +3,7 @@
 ############
 # homebrew #
 ############
-if [ ! "$(command -v brew > /dev/null)" ]; then
+if [ "$(command -v brew > /dev/null)" ]; then
     echo
     echo "Installing Homebrew"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -69,7 +69,7 @@ fi
 ##########
 
 # install miniconda3
-if [ ! "$(command -v conda > /dev/null)" ]; then
+if [ "$(command -v conda > /dev/null)" ]; then
     # http://conda.pydata.org/docs/help/silent.html
     echo
     echo "Installing miniconda3 (Python 3)"
@@ -88,7 +88,7 @@ fi
 #####
 
 # install R
-if [ ! "$(command -v R > /dev/null)" ]; then
+if [ "$(command -v R > /dev/null)" ]; then
     echo
     echo "Installing R"
     wget "$R_URL" -O R_install.pkg
