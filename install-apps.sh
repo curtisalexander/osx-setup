@@ -3,7 +3,7 @@
 ############
 # homebrew #
 ############
-if [ ! "$(which brew)" ]; then
+if [ ! "$(command -v brew > /dev/null 2>&1)" ]; then
     echo
     echo "Installing Homebrew"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -69,18 +69,18 @@ fi
 ##########
 
 # install miniconda3
-if [ ! "$(which conda)" ]; then
+if [ ! "$(command -v conda > /dev/null 2>&1)" ]; then
     # http://conda.pydata.org/docs/help/silent.html
     echo
-    echo "Installing miniconda for Python 3"
-    wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O miniconda3_install.sh
+    echo "Installing miniconda3 (Python 3)"
+    wget "$MINICONDA_URL" -O miniconda3_install.sh
     chmod +x miniconda3_install.sh
     bash -b -f miniconda3_install.sh
     rm miniconda3_install.sh
     echo "Update PATH accordingly"
 else
     echo
-    echo "miniconda already installed"
+    echo "miniconda3 is already installed"
 fi
 
 #####
@@ -88,3 +88,30 @@ fi
 #####
 
 # install R + RStudio
+if [ ! "$(command -v R > /dev/null 2>&1)" ]; then
+    echo
+    echo "Installing R"
+    wget "$R_URL" -O R_install.pkg
+    chmod +x R_install.pkg
+    sudo installer -pkg "R_install.pkg" -target /
+    rm R_install.pkg
+else
+    echo
+    echo "R already installed"
+fi
+
+if [ ! -d "/Applications/RStudio.app" ]; then
+    echo
+    echo "Installing RStudio"
+    wget "$RSTUDIO_URL" -O RStudio_install.dmg
+    chmod +x RStudio_install.dmg
+    # mount image - mounts to /Volumes/RStudio
+    hdiutil attach RStudio_install.dmg -quiet
+    # install app
+    sudo cp -a "/Volumes/$RSTUDIO_MNT_NAME" "/Applications"  
+    # unmount image
+    hdiutil detach -force "/Volumes/$RSTUDIO_MNT_NAME"
+else
+    echo 
+    echo "RStudio is already installed"
+fi
