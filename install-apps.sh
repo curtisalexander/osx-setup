@@ -60,5 +60,20 @@ if [ "$(xcode-select -p)" ]; then
 else
     echo
     echo "Installing Xcode command line tools"
-    # xcode-select install
+    xcode-select install
 fi
+
+##########
+# python #
+##########
+
+# install miniconda3
+# conda install a few packages
+
+#####
+# R #
+#####
+
+# install R + RStudio
+# git clone radon
+# radon install a few packages
