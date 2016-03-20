@@ -5,12 +5,11 @@
 #################
 
 # $SYSTEM_LABEL and $SYSTEM_NAME set in settings.sh
-# having issues with scutil -- saying the command cannot be found
-# echo "Setting system label, hostname, and local hostname"
-# sudo scutil --set ComputerName $SYSTEM_LABEL
-# sudo scutil --set HostName $SYSTEM_NAME
-# sudo scutil --set LocalHostName $SYSTEM_NAME
-# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $SYSTEM_NAME
+echo "Setting system label, hostname, and local hostname"
+sudo scutil --set ComputerName $SYSTEM_LABEL
+sudo scutil --set HostName $SYSTEM_NAME
+sudo scutil --set LocalHostName $SYSTEM_NAME
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $SYSTEM_NAME
 
 #################
 # host defaults #
@@ -20,9 +19,8 @@
 #   - https://gist.github.com/brandonb927/3195465
 #   - https://github.com/bkuhlmann/osx/blob/master/scripts/defaults.sh
 
-# not sure why nvram cannot be found
-# echo "System - Disable boot sound effects"
-# sudo nvram SystemAudioVolume=" "
+echo "System - Disable boot sound effects"
+sudo nvram SystemAudioVolume=" "
 
 echo "System - Reveal IP address, hostname, OS version, etc. when clicking the login window clock"
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
@@ -76,8 +74,8 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 echo "Finder - Show the $HOME/Library folder"
 chflags nohidden $HOME/Library
 
-echo "Finder - Show hidden files"
-defaults write com.apple.finder AppleShowAllFiles -bool true
+# echo "Finder - Show hidden files"
+# defaults write com.apple.finder AppleShowAllFiles -bool true
 
 echo "Finder - Show filename extensions"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
