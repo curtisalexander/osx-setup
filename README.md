@@ -2,6 +2,5 @@
 Setup an OSX machine
 
 ### Usage
-```
-./osx-setup.sh --help
+Edit `settings.sh` and then run `./osx-setup.sh --help`.
 ```
