@@ -3,11 +3,14 @@
 ##########
 # prezto #
 ##########
-# clone repo, then initialize in a separate script as the script
-#   requires zsh specific glob options
+# utilize a heredoc as must be executed using zsh
+/bin/zsh <<EOF
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
-prezto-init.zsh
-
+setopt EXTENDED_GLOB
+for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+  ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+done
+EOF
 
 #######
 # vim #
