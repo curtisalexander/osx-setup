@@ -33,6 +33,7 @@ brew install tree
 brew install tmux
 brew install reattach-to-user-namespace  # used within tmux
 brew install vim
+brew install wget
 brew install zsh --without-etcdir
 
 #################
@@ -68,12 +69,22 @@ fi
 ##########
 
 # install miniconda3
-# conda install a few packages
+if [ ! "$(which conda)" ]; then
+    # http://conda.pydata.org/docs/help/silent.html
+    echo
+    echo "Installing miniconda for Python 3"
+    wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O miniconda3_install.sh
+    chmod +x miniconda3_install.sh
+    bash -b -f miniconda3_install.sh
+    rm miniconda3_install.sh
+    echo "Update PATH accordingly"
+else
+    echo
+    echo "miniconda already installed"
+fi
 
 #####
 # R #
 #####
 
 # install R + RStudio
-# git clone radon
-# radon install a few packages
