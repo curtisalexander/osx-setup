@@ -1,7 +1,7 @@
 # osx-setup
 Setup an OSX machine
 
-## Usage
+### Usage
 ```
 ./osx-setup.sh --help
 ```
