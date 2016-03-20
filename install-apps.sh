@@ -87,12 +87,13 @@ fi
 # R #
 #####
 
-# install R + RStudio
+# install R
 if [ ! "$(command -v R > /dev/null 2>&1)" ]; then
     echo
     echo "Installing R"
     wget "$R_URL" -O R_install.pkg
     chmod +x R_install.pkg
+    # install a pkg via installer command
     sudo installer -pkg "R_install.pkg" -target /
     rm R_install.pkg
 else
@@ -100,6 +101,7 @@ else
     echo "R already installed"
 fi
 
+# install RStudio
 if [ ! -d "/Applications/RStudio.app" ]; then
     echo
     echo "Installing RStudio"
@@ -107,10 +109,11 @@ if [ ! -d "/Applications/RStudio.app" ]; then
     chmod +x RStudio_install.dmg
     # mount image - mounts to /Volumes/RStudio
     hdiutil attach RStudio_install.dmg -quiet
-    # install app
+    # install dmg via a copy
     sudo cp -a "/Volumes/$RSTUDIO_MNT_NAME" "/Applications"  
     # unmount image
     hdiutil detach -force "/Volumes/$RSTUDIO_MNT_NAME"
+    rm RStudio_install.dmg
 else
     echo 
     echo "RStudio is already installed"
