@@ -3,15 +3,15 @@
 ############
 # homebrew #
 ############
-if [ "$(command -v brew > /dev/null)" ]; then
+if [ "$(type brew)" ]; then
+    echo
+    echo "Homebrew is already installed"
+else
     echo
     echo "Installing Homebrew"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     echo "Updating PATH...\n"
     PATH="/usr/local/bin:$PATH"
-else
-    echo
-    echo "Homebrew is already installed"
 fi
 
 #################
@@ -69,7 +69,10 @@ fi
 ##########
 
 # install miniconda3
-if [ "$(command -v conda > /dev/null)" ]; then
+if [ "$(type conda)" ]; then
+    echo
+    echo "miniconda3 is already installed"
+else
     # http://conda.pydata.org/docs/help/silent.html
     echo
     echo "Installing miniconda3 (Python 3)"
@@ -78,9 +81,6 @@ if [ "$(command -v conda > /dev/null)" ]; then
     bash -b -f miniconda3_install.sh
     rm miniconda3_install.sh
     echo "Update PATH accordingly"
-else
-    echo
-    echo "miniconda3 is already installed"
 fi
 
 #####
@@ -88,7 +88,10 @@ fi
 #####
 
 # install R
-if [ "$(command -v R > /dev/null)" ]; then
+if [ "$(type)" ]; then
+    echo
+    echo "R already installed"
+else
     echo
     echo "Installing R"
     wget "$R_URL" -O R_install.pkg
@@ -97,12 +100,13 @@ if [ "$(command -v R > /dev/null)" ]; then
     sudo installer -pkg "R_install.pkg" -target /
     rm R_install.pkg
 else
-    echo
-    echo "R already installed"
 fi
 
 # install RStudio
-if [ ! -d "/Applications/RStudio.app" ]; then
+if [ -d "/Applications/RStudio.app" ]; then
+    echo 
+    echo "RStudio is already installed"
+else 
     echo
     echo "Installing RStudio"
     wget "$RSTUDIO_URL" -O RStudio_install.dmg
@@ -114,7 +118,4 @@ if [ ! -d "/Applications/RStudio.app" ]; then
     # unmount image
     hdiutil detach -force "/Volumes/$RSTUDIO_MNT_NAME"
     rm RStudio_install.dmg
-else
-    echo 
-    echo "RStudio is already installed"
 fi
