@@ -88,7 +88,7 @@ fi
 #####
 
 # install R
-if [ "$(type)" ]; then
+if [ "$(type R)" ]; then
     echo
     echo "R already installed"
 else
