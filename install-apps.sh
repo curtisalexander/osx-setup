@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+#########
+# Xcode #
+#########
+if [ "$(xcode-select -p)" ]; then
+    echo
+    echo "Xcode command line tools are already installed"
+else
+    echo
+    echo "Installing Xcode command line tools"
+    xcode-select --install
+fi
+
+
 ############
 # homebrew #
 ############
@@ -23,6 +36,7 @@ brew install bash
 brew install ccat
 brew install git
 brew install jq
+brew install argon/mas/mas
 brew install openssl --force
 brew install pandoc
 brew install pigz
@@ -47,22 +61,11 @@ echo
 echo "Installing Homebrew Cask GUI apps"
 brew cask install 1password
 brew cask install alfred
-brew cask install google-chrome
-brew cask install dropbox
-brew cask install iterm2
+brew cask install caffeine
 brew cask install caskroom/fonts/font-hack
-
-#########
-# Xcode #
-#########
-if [ "$(xcode-select -p)" ]; then
-    echo
-    echo "Xcode command line tools are already installed"
-else
-    echo
-    echo "Installing Xcode command line tools"
-    xcode-select install
-fi
+brew cask install dropbox
+brew cask install google-chrome
+brew cask install iterm2
 
 ##########
 # python #
@@ -88,7 +91,7 @@ fi
 #####
 
 # install R
-if [ "$(type)" ]; then
+if [ "$(type R)" ]; then
     echo
     echo "R already installed"
 else
@@ -99,7 +102,6 @@ else
     # install a pkg via installer command
     sudo installer -pkg "R_install.pkg" -target /
     rm R_install.pkg
-else
 fi
 
 # install RStudio

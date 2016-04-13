@@ -122,3 +122,8 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 echo "Safari - Do not send search queries to Apple"
 defaults write com.apple.Safari UniversalSearchEnabled -bool false
 defaults write com.apple.Safari SuppressSearchSuggestions -bool true
+
+# https://support.rstudio.com/hc/en-us/articles/204896737
+echo "Apple Press and Hold"
+defaults delete -g ApplePressAndHoldEnabled
+defaults write -app RStudio ApplePressAndHoldEnabled -bool false
