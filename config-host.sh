@@ -131,3 +131,7 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 
 echo "Do not create .DS_Store over network connections"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+
+# https://developer.apple.com/library/mac/releasenotes/MacOSX/WhatsNewInOSX/Articles/MacOSX10_9.html
+echo "Turn off App Nap feature for R"
+defaults write org.R-project.R NSAppSleepDisabled -bool true
