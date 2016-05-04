@@ -12,7 +12,6 @@ else
     xcode-select --install
 fi
 
-
 ############
 # homebrew #
 ############
@@ -34,6 +33,7 @@ echo
 echo "Installing Homebrew command line apps"
 brew install bash
 brew install ccat
+brew install fzf
 brew install git
 brew install jq
 brew install argon/mas/mas
@@ -42,7 +42,7 @@ brew install pandoc
 brew install pigz
 brew install readline
 brew install terminal-notifier
-brew install the_silver_searcher
+#brew install the_silver_searcher
 brew install tree
 brew install tmux
 brew install reattach-to-user-namespace  # used within tmux
@@ -59,13 +59,14 @@ brew tap caskroom/cask
 
 echo
 echo "Installing Homebrew Cask GUI apps"
-brew cask install 1password
-brew cask install alfred
+#brew cask install 1password
+#brew cask install alfred
 brew cask install caffeine
 brew cask install caskroom/fonts/font-hack
-brew cask install dropbox
-brew cask install google-chrome
+#brew cask install dropbox
+#brew cask install google-chrome
 brew cask install iterm2
+brew cask install bettertouchtool
 
 ##########
 # python #
