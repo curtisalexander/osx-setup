@@ -5,11 +5,11 @@
 #################
 
 # $SYSTEM_LABEL and $SYSTEM_NAME set in settings.sh
-echo "Setting system label, hostname, and local hostname"
-sudo scutil --set ComputerName $SYSTEM_LABEL
-sudo scutil --set HostName $SYSTEM_NAME
-sudo scutil --set LocalHostName $SYSTEM_NAME
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $SYSTEM_NAME
+#echo "Setting system label, hostname, and local hostname"
+#sudo scutil --set ComputerName $SYSTEM_LABEL
+#sudo scutil --set HostName $SYSTEM_NAME
+#sudo scutil --set LocalHostName $SYSTEM_NAME
+#sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string $SYSTEM_NAME
 
 #################
 # host defaults #
@@ -127,3 +127,7 @@ defaults write com.apple.Safari SuppressSearchSuggestions -bool true
 echo "Apple Press and Hold"
 defaults delete -g ApplePressAndHoldEnabled
 defaults write -app RStudio ApplePressAndHoldEnabled -bool false
+defaults write -g ApplePressAndHoldEnabled -bool false
+
+echo "Do not create .DS_Store over network connections"
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true
