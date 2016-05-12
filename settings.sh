@@ -3,8 +3,6 @@
 ###################
 # system settings #
 ###################
-#export SYSTEM_LABEL="flyingfish"
-#export SYSTEM_NAME="flyingfish"
 
 ############
 # app URLs #
