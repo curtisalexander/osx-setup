@@ -42,7 +42,7 @@ brew install pandoc
 brew install pigz
 brew install readline
 brew install terminal-notifier
-#brew install the_silver_searcher
+brew install the_silver_searcher
 brew install tree
 brew install tmux
 brew install reattach-to-user-namespace  # used within tmux
