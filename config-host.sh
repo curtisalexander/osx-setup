@@ -53,6 +53,9 @@ echo "System - Require password immediately after sleep or screen saver begins"
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
+#echo "Do not create .DS_Store over network connections"
+#defaults write com.apple.desktopservices DSDontWriteNetworkStores true
+
 echo "System - Avoid creating .DS_Store files on network volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
@@ -129,8 +132,6 @@ defaults delete -g ApplePressAndHoldEnabled
 defaults write -app RStudio ApplePressAndHoldEnabled -bool false
 defaults write -g ApplePressAndHoldEnabled -bool false
 
-echo "Do not create .DS_Store over network connections"
-defaults write com.apple.desktopservices DSDontWriteNetworkStores true
 
 # https://developer.apple.com/library/mac/releasenotes/MacOSX/WhatsNewInOSX/Articles/MacOSX10_9.html
 echo "Turn off App Nap feature for R"
