@@ -2,4 +2,4 @@
 Setup an OSX machine
 
 ### Usage
-Edit `settings.sh` and then run `./osx-setup.sh --help`.
+Edit all the scripts to your liking and then run `./osx-setup.sh --help`.

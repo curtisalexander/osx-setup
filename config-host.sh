@@ -53,9 +53,6 @@ echo "System - Require password immediately after sleep or screen saver begins"
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-#echo "Do not create .DS_Store over network connections"
-#defaults write com.apple.desktopservices DSDontWriteNetworkStores true
-
 echo "System - Avoid creating .DS_Store files on network volumes"
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
