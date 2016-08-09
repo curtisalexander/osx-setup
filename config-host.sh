@@ -132,7 +132,6 @@ defaults delete -g ApplePressAndHoldEnabled
 defaults write -app RStudio ApplePressAndHoldEnabled -bool false
 defaults write -g ApplePressAndHoldEnabled -bool false
 
-
 # https://developer.apple.com/library/mac/releasenotes/MacOSX/WhatsNewInOSX/Articles/MacOSX10_9.html
 echo "Turn off App Nap feature for R"
 defaults write org.R-project.R NSAppSleepDisabled -bool true
